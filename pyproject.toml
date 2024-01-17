@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "core"
+name = "base"
 version = "0.1.0"
-description = "Django project"
+description = ""
 authors = ["code406 <davidpm99@gmail.com>"]
 readme = "README.md"
 
@@ -10,9 +10,17 @@ python = "^3.12"
 Django = "^5.0.1"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.12.1"
-mypy = "^1.8.0"
+ruff = "^0.1.13"
+django-stubs = {extras = ["compatible-mypy"], version = "^4.2.7"}
+djangorestframework-stubs = "^3.14.5"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+strict = true
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "base.settings"
