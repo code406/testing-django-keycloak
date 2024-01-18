@@ -1,0 +1,37 @@
+### Get Token from Keycloak (Front would do this and send the token to Back)
+# @name tokenrequest
+POST /realms/master/protocol/openid-connect/token HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+
+&grant_type=password
+&client_id=test-client
+&username=djangoadmin@example.com
+&password=admin
+&client_secret=gV6x3Bm2yYrxSB3RfnwidSnnjDuIcL5C
+
+
+###
+@token = {{tokenrequest.response.body.access_token}}
+
+
+### Hello <request.user>
+GET /api/hello/ HTTP/1.1
+Host: localhost:8000
+Authorization: Bearer {{token}}
+
+
+### Register a new user
+POST /api/register_user/ HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+
+{ "email": "test@example.com", "password": "test" }
+
+
+### Set user field(s)
+POST /api/set_user_field/ HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+
+{ "email": "test@example.com", "field": "preferred_color_scheme", "value": "dark" }

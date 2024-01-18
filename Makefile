@@ -1,6 +1,5 @@
-export DJANGO_SUPERUSER_USERNAME ?= admin
+export DJANGO_SUPERUSER_EMAIL ?= djangoadmin@example.com
 export DJANGO_SUPERUSER_PASSWORD ?= admin
-export DJANGO_SUPERUSER_EMAIL ?=
 
 run:
 	poetry run python src/manage.py runserver
