@@ -7,7 +7,7 @@ run:
 superuser:
 	poetry run python src/manage.py createsuperuser
 
-resetlocal:
+reset:
 	rm -rf src/db.sqlite3
 	poetry run python src/manage.py migrate
 	poetry run python src/manage.py createsuperuser --noinput
@@ -15,7 +15,7 @@ resetlocal:
 migrate:
 	poetry run python src/manage.py migrate
 
-makemigrations:
+migrations:
 	poetry run python src/manage.py makemigrations
 
 shell:
