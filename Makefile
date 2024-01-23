@@ -20,3 +20,9 @@ makemigrations:
 
 shell:
 	poetry run python src/manage.py shell
+
+install:
+	pyenv local 3.12
+	poetry config virtualenvs.prefer-active-python true
+	poetry self add poetry-dotenv-plugin
+	poetry install
