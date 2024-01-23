@@ -5,10 +5,10 @@ Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded
 
 &grant_type=password
-&client_id=test-client
-&username=djangoadmin@example.com
+&client_id=admin-cli
+&username=admin
 &password=admin
-&client_secret=gV6x3Bm2yYrxSB3RfnwidSnnjDuIcL5C
+&client_secret=
 
 
 ###

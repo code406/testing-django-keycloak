@@ -119,9 +119,21 @@ REST_FRAMEWORK = {
 # Custom user model
 AUTH_USER_MODEL = "users.CustomUser"
 
-# Keycloak settings for Python-Keycloak. Will except if not set
-# https://python-keycloak.readthedocs.io/
-KEYCLOAK_SERVER_URL = os.environ["KEYCLOAK_SERVER_URL"]
-KEYCLOAK_REALM = os.environ["KEYCLOAK_REALM"]
-KEYCLOAK_ADMIN_USERNAME = os.environ["KEYCLOAK_ADMIN_USERNAME"]
-KEYCLOAK_ADMIN_PASSWORD = os.environ["KEYCLOAK_ADMIN_PASSWORD"]
+# Keycloak settings for Python-Keycloak
+# https://python-keycloak.readthedocs.io
+KEYCLOAK_SERVER_URL = os.getenv("KEYCLOAK_SERVER_URL", "http://localhost:8080")
+KEYCLOAK_REALM = os.getenv("KEYCLOAK_REALM", "master")
+KEYCLOAK_CLIENT_ID = os.getenv("KEYCLOAK_CLIENT_ID", "admin-cli")
+KEYCLOAK_CLIENT_SECRET = os.getenv("KEYCLOAK_CLIENT_SECRET")
+KEYCLOAK_ADMIN_USERNAME = os.getenv("KEYCLOAK_ADMIN_USERNAME", "admin")
+KEYCLOAK_ADMIN_PASSWORD = os.getenv("KEYCLOAK_ADMIN_PASSWORD", "admin")
+
+# DRF Keycloak Auth settings
+# https://pypi.org/project/drf-keycloak-auth
+DRF_KEYCLOAK_AUTH = {
+    "KEYCLOAK_SERVER_URL": KEYCLOAK_SERVER_URL,
+    "KEYCLOAK_REALM": KEYCLOAK_REALM,
+    "KEYCLOAK_CLIENT_ID": KEYCLOAK_CLIENT_ID,
+    "KEYCLOAK_CLIENT_SECRET_KEY": KEYCLOAK_CLIENT_SECRET,
+    "KEYCLOAK_DJANGO_USER_UUID_FIELD": "uuid",
+}
