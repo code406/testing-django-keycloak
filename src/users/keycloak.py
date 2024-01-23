@@ -30,8 +30,9 @@ def create_keycloak_user(email: str, password: str) -> UUID:
     Create a user in Keycloak and return the UUID of the user.
     Raises ValueError if uuid is not a valid UUID.
     """
+    keycloak_admin = get_keycloak_admin()
+
     try:
-        keycloak_admin = get_keycloak_admin()
         uuid = keycloak_admin.create_user(
             {
                 "email": email,
