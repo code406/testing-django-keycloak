@@ -1,4 +1,5 @@
 ### Get Token from Keycloak (Front would do this and send the token to Back)
+# IMPORTANT: Set KEYCLOAK_CLIENT_SECRET in the .env file!
 # @name tokenrequest
 POST /realms/master/protocol/openid-connect/token HTTP/1.1
 Host: localhost:8080
@@ -8,7 +9,7 @@ Content-Type: application/x-www-form-urlencoded
 &client_id=admin-cli
 &username=djangoadmin@example.com
 &password=admin
-&client_secret=
+&client_secret={{$dotenv KEYCLOAK_CLIENT_SECRET}}
 
 
 ###
