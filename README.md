@@ -2,7 +2,7 @@
 
 This is a simple Django REST API that uses Keycloak for authentication.
 
-### Launching Keycloak
+## Launching Keycloak
 
 I'm running the Keycloak server with the following command
 (from [the Keycloak docs](https://www.keycloak.org/getting-started/getting-started-docker)):
@@ -13,7 +13,7 @@ docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin
 
 This launches Keycloak at http://localhost:8080, with the admin user being `admin` and the password being `admin`.
 
-### Configuring the Keycloak Client
+## Configuring the Keycloak Client
 
 Here's how I configured the `admin-cli` client. Should work as well with new clients.
 
@@ -29,7 +29,7 @@ Here's how I configured the `admin-cli` client. Should work as well with new cli
 - In the "Advanced" tab:
     - Set "User Info Signed Response Algorithm" to "RS256"
 
-### Running the Django REST API
+## Running the Django REST API
 
 **Requirements**:
 
