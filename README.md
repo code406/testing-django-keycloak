@@ -1,5 +1,8 @@
 # Testing Django with Keycloak
 
+[![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#experimental)
+
+
 This is a simple Django REST API that uses Keycloak for authentication.
 
 ## Launching Keycloak
