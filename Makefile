@@ -2,24 +2,24 @@ export DJANGO_SUPERUSER_EMAIL ?= djangoadmin@example.com
 export DJANGO_SUPERUSER_PASSWORD ?= admin
 
 run:
-	poetry run python src/manage.py runserver
+	poetry run python manage.py runserver
 
 superuser:
-	poetry run python src/manage.py createsuperuser
+	poetry run python manage.py createsuperuser
 
 reset:
-	rm -rf src/db.sqlite3
-	poetry run python src/manage.py migrate
-	poetry run python src/manage.py createsuperuser --noinput
+	rm -rf db.sqlite3
+	poetry run python manage.py migrate
+	poetry run python manage.py createsuperuser --noinput
 
 migrate:
-	poetry run python src/manage.py migrate
+	poetry run python manage.py migrate
 
 migrations:
-	poetry run python src/manage.py makemigrations
+	poetry run python manage.py makemigrations
 
 shell:
-	poetry run python src/manage.py shell
+	poetry run python manage.py shell
 
 install:
 	pyenv local 3.12

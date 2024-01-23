@@ -6,7 +6,7 @@ Content-Type: application/x-www-form-urlencoded
 
 &grant_type=password
 &client_id=admin-cli
-&username=admin
+&username=djangoadmin@example.com
 &password=admin
 &client_secret=
 
